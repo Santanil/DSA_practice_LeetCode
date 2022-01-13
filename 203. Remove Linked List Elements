@@ -1,0 +1,30 @@
+//203. Remove Linked List Elements
+//https://leetcode.com/problems/remove-linked-list-elements/
+//https://docs.google.com/spreadsheets/d/1Hk2dxaDNsqrDElQy5NKMWKAdYzjgWrmoFgT-vWRHkC8/edit#gid=0
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        if(head==null)
+            return head;
+        while(head!=null && head.val==val)
+            head=head.next;
+        ListNode currentNode=head;
+        while(currentNode!=null && currentNode.next!=null){
+            if(currentNode.next.val==val)
+                currentNode.next=currentNode.next.next;
+            else
+                currentNode=currentNode.next;
+        }
+        return head;
+    }
+}
