@@ -24,7 +24,7 @@ class FreqStack {
         int fr= freq.getOrDefault(val,0)+1;
         freq.put(val,fr);
         if(fr > maxFreq) maxFreq = fr;
-        freqStack.computeIfAbsent(fr, f->new Stack()).push(val);
+        freqStack.computeIfAbsent(fr, f->new Stack()).push(val);  //lambda expression
               
     }
     
