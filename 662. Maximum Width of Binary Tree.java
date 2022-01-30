@@ -1,7 +1,7 @@
 //662. Maximum Width of Binary Tree
 //https://leetcode.com/problems/maximum-width-of-binary-tree/
 //https://docs.google.com/spreadsheets/d/1Hk2dxaDNsqrDElQy5NKMWKAdYzjgWrmoFgT-vWRHkC8/edit#gid=0
-//https://www.youtube.com/watch?v=ZbybYvcVLk
+//https://www.youtube.com/watch?v=ZbybYvcVLks
 
 /**
  * Definition for a binary tree node.
