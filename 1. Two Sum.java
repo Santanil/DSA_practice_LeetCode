@@ -15,6 +15,7 @@ class Solution {
 
 
 //  TC: O(N)  SC:O(N)
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> map = new HashMap();
