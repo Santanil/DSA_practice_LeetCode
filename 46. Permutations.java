@@ -32,3 +32,40 @@ class Solution {
         }
     }
 }
+
+
+
+//Space Optimized Approach
+
+//TC:O(N! * N)-> N! to get each possible permutation and for each we are looping from index till N and also for copying the nums into our actual ds ie res here
+//SC:O(1) Constant space just using the stack space for recursion and is counted under auxilary space 
+//Auxilary Space: O(N) for recursion call as the depth will be N
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> res=new ArrayList<>();
+        //boolean[] freq=new boolean[nums.length];
+        getPermute(0,nums,res);
+        return res;
+    }
+    public void swap(int i,int j,int[] arr){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+    public void getPermute(int index,int[] arr,List<List<Integer>> res){
+        //base case
+        if(index==arr.length){
+            List<Integer> ds=new ArrayList<>();
+            for(int i=0;i<arr.length;i++)
+                ds.add(arr[i]);
+            res.add(ds);
+            return;
+        }
+    
+        for(int i=index;i<arr.length;i++){
+            swap(i,index,arr);
+            getPermute(index+1,arr,res);
+            swap(index,i,arr);
+        }
+    }
+}
