@@ -1,7 +1,7 @@
 //31. Next Permutation
 //https://leetcode.com/problems/next-permutation/
 //https://www.youtube.com/watch?v=LuLCLgMElus
-//
+//https://docs.google.com/spreadsheets/d/1Hk2dxaDNsqrDElQy5NKMWKAdYzjgWrmoFgT-vWRHkC8/edit#gid=0
 
 
 BF Approach: To generate all the permuations with the given input and arrange them in lexecogrphical order and then find the next element
