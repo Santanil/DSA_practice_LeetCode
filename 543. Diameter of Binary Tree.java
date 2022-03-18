@@ -18,7 +18,7 @@
  * }
  */
 
-//TC:O(N)    SC;O(H)
+//TC:O(N)    SC:O(H)
 class Solution {
     int diameter=0;
     public int height(TreeNode root){
@@ -32,5 +32,22 @@ class Solution {
     public int diameterOfBinaryTree(TreeNode root) {
         height(root);
         return diameter;
+    }
+}
+
+// Global variable is not allowed
+class Solution {
+    public int height(TreeNode root,int[] diameter){
+        if(root==null)
+            return -1;
+        int hl=height(root.left,diameter);
+        int hr=height(root.right,diameter);
+        diameter[0]=Math.max(diameter[0], hl+hr+2);
+        return Math.max(hl,hr)+1;
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        int[] diameter=new int[1];
+        height(root,diameter);
+        return diameter[0];
     }
 }
