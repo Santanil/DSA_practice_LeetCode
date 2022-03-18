@@ -1,3 +1,9 @@
+//94. Binary Tree Inorder Traversal
+Iterative-> //https://www.youtube.com/watch?v=lxTGsVXjwvM&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=11
+//https://docs.google.com/spreadsheets/d/1Hk2dxaDNsqrDElQy5NKMWKAdYzjgWrmoFgT-vWRHkC8/edit#gid=0
+
+
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -13,7 +19,10 @@
  *     }
  * }
  */
+    
+//Recursive Solution
 //TC: O(N)  SC: O(H)  H- height of the tree
+//SC:O(N) in case of skewed tree    
 class Solution {
     public List<Integer> inorder(TreeNode root, List l){
         if(root==null)
@@ -30,6 +39,31 @@ class Solution {
     }
 }
 
+
+//Iterative Solution
+//TC:O(N)
+//SC:O(N)
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res=new ArrayList<>();
+        if(root==null)
+            return res;
+        Stack<TreeNode> s=new Stack<>();
+        while(true){
+            if(root!=null){
+                s.push(root);
+                root=root.left;
+            }else{
+                if(s.isEmpty())
+                    break;
+                root=s.pop();
+                res.add(root.val);
+                root=root.right;
+            }  
+        }
+        return res;
+    }
+}
 
 //Morris Traversal
 //TC:O(N)   SC:O(1)
