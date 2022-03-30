@@ -25,3 +25,25 @@ class Solution {
         return list;
     }
 }
+
+
+
+Solution using bit manipulation
+
+//TC: O(2^N * N)-> 2^N for outer loop and N for the inner loop
+//SC: O(1)
+class Solution {
+    public List<List<Integer>> subsets(int[] arr) {
+        List<List<Integer>> res=new ArrayList<>();
+        int n=arr.length;
+        for(int i=0;i<(1<<n);i++){
+            List<Integer> sublist=new ArrayList<>();
+            for(int j=0;j<n;j++){
+                if( (i & (1<<j))!=0)
+                    sublist.add(arr[j]);
+            }
+            res.add(sublist);
+        }
+        return res;
+    }
+}
