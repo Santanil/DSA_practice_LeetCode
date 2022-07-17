@@ -1,7 +1,7 @@
 
-//283. Move Zeroes
-//https://leetcode.com/problems/move-zeroes/
-//https://docs.google.com/spreadsheets/d/1Hk2dxaDNsqrDElQy5NKMWKAdYzjgWrmoFgT-vWRHkC8/edit#gid=0
+283. Move Zeroes
+https://leetcode.com/problems/move-zeroes/
+https://docs.google.com/spreadsheets/d/1Hk2dxaDNsqrDElQy5NKMWKAdYzjgWrmoFgT-vWRHkC8/edit#gid=0
 
 //TC: O(N+M) SC:O(1)  //M=no of 0s
 //here we are copying all the non-zero elements and placing them from 1st index and 
@@ -42,6 +42,29 @@ class Solution {
                 zeroPtr++;
             }else
                 nonZeroPtr++;  
+        }
+    }
+}
+
+Q2. Storing zeros infromt:
+Input: nums = [0,1,0,3,12]
+Output: [0,0,1,3,12]
+
+
+TC: O(N) SC:O(1)
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int left=0, right=0;
+        while(right<nums.length){
+            if(nums[right]==0){
+                //swap
+                int temp=nums[right];
+                nums[right]=nums[left];
+                nums[left]=temp;
+                left++;
+            }
+            right++;
         }
     }
 }
