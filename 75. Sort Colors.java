@@ -45,7 +45,7 @@ class Solution {
 
 
 
-Best Solution:  Dutch National Flag algorithm  ----------------------------> 1 pass solution
+Best Solution: variation of Dutch National Flag algorithm  ----------------------------> 1 pass solution
 TC: O(N)
 SC:O(1)
 
