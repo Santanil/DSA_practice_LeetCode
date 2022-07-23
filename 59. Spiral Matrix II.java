@@ -2,44 +2,44 @@ https://leetcode.com/problems/spiral-matrix-ii/
 https://www.youtube.com/watch?v=BdQ2AkaTgOA
 
 
-//TC:O(M*N)
-//SC:O(1)
+//TC:O(N*N)
 
 class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> result=new ArrayList();
-        int left=0,right=matrix[0].length-1,top=0,bottom=matrix.length-1;
-        int size=matrix.length*matrix[0].length;
-        
-        while(result.size()<size){
+    public int[][] generateMatrix(int n) {
+        int[][] matrix=new int[n][n];
+        int left=0,right=n-1,top=0,bottom=n-1;
+        int size=n*n;
+        int num=1;
+        while(num<=size){
             
             //right movement
-            for(int i=left;i<=right && result.size()<size;i++){
-                result.add(matrix[top][i]);
+            for(int i=left;i<=right && num<=size;i++){
+                matrix[top][i]=num++;
             }
             top++;
             
             
             //downward movement
-            for(int i=top;i<=bottom && result.size()<size;i++){
-                result.add(matrix[i][right]);
+            for(int i=top;i<=bottom && num<=size;i++){
+                matrix[i][right]=num++;
             }
             right--;
             
             
             //left movement
-            for(int i=right;i>=left && result.size()<size;i--){
-                result.add(matrix[bottom][i]);
+            for(int i=right;i>=left && num<=size;i--){
+                matrix[bottom][i]=num++;
             }
             bottom--;
             
             
             //upward movement
-            for(int i=bottom;i>=top && result.size()<size;i--){
-                result.add(matrix[i][left]);
+            for(int i=bottom;i>=top && num<=size;i--){
+                matrix[i][left]=num++;
             }
             left++;
+            
         }
-        return result;
+        return matrix;
     }
 }
