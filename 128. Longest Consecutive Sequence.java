@@ -1,5 +1,9 @@
 https://leetcode.com/problems/longest-consecutive-sequence/
 
+// I have a doubt. Let's take a test case: [3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+// While loop won't execute for 3 & 2 since 1 is present. But while loop will be executed for 1 since 0 is not present, and that will be executed (n-2) times here. 
+// I think instead of iterating over nums which consists repeated elements, we can iterate over hashset then for 1 it will execute while loop only once resulting time complexity O(n) + O(n)
+
 TC: O(N)
 SC: O(N)
 
