@@ -3,7 +3,7 @@ https://leetcode.com/problems/shortest-common-supersequence/
 https://www.youtube.com/watch?v=xElxAuBcvsU&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=32
 
 //Approach: populate the dp table similar to lcs and then iterate through the dp matrox from the bottom right most cell untill i or j is 0; Keep on adding the letters accordingly
-
+// If length is only asked in the question: ans=i+j-lcs;
 //TC:O(n*m)
 //SC:O(n*m)
 class Solution {
