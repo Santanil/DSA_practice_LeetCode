@@ -24,31 +24,30 @@ class Solution {
 }
 
 Approach 2-------------------------------------------------------------------------
-// Add all elements of array1 in set1 , ietrate through array 2 elemnets and check if present in set 1, 
-if present add in set 2. Iterate through set 2 and add in resultant int array to be returned
+// Add all elements of array1 in set , ietrate through array 2 elemnets and check if present in set 1, 
+// if present add in list and remove from set1.
+  
 TC:O(n)
 SC:(n)
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set=new HashSet<>();
+        List<Integer> list=new ArrayList<>();
+        for(int x:nums1)
+            set.add(x);
         
-        HashSet<Integer> temp=new HashSet<>();
-        HashSet<Integer> set=new HashSet<>();
-        
-        
-        for(int i=0;i<nums1.length;i++)
-            temp.add(nums1[i]);
         for(int i=0;i<nums2.length;i++){
-            if(temp.contains(nums2[i])){
-                set.add(nums2[i]);
+            if(set.contains(nums2[i])){
+                list.add(nums2[i]);
+                set.remove(nums2[i]);
             }
         }
+        int[] res=new int[list.size()];
+        int i=0;
+        for(Integer x:list)
+            res[i++]=x;
         
-        
-        int[] res=new int[set.size()];
-        int i=0;    
-        for(int element: set)
-            res[i++]=element;
-        return res;   
+        return res;
     }
 }
 
