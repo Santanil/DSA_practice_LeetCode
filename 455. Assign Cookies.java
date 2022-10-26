@@ -1,6 +1,6 @@
 https://leetcode.com/problems/assign-cookies/
 
-TC: O(N)
+TC: O(NlogN)
 SC: O(1)
 
 class Solution{
