@@ -1,6 +1,8 @@
 https://leetcode.com/problems/surrounded-regions/description/
 https://www.youtube.com/watch?v=BtdgAys4yMk&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=14
 
+//TC: O(n*m)
+//SC: O(n*m)
 class Pair{
     int row,col;
     Pair(int row,int col){
