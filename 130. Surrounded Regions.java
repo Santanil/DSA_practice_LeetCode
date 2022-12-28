@@ -40,28 +40,28 @@ class Solution {
 
         //check for top row
         for(int c=0;c<m;c++){
-            if(board[0][c]=='O'){
+            if(vis[0][c]==0 && board[0][c]=='O'){
                 bfs(0,c,n,m,vis,board);
             }
         }
 
         //check for last row
         for(int c=0;c<m;c++){
-            if(board[n-1][c]=='O'){
+            if(vis[n-1][c]==0 && board[n-1][c]=='O'){
                 bfs(n-1,c,n,m,vis,board);
             }
         } 
 
         //check for first col
         for(int r=0;r<n;r++){
-            if(board[r][0]=='O'){
+            if(vis[r][0]==0 && board[r][0]=='O'){
                 bfs(r,0,n,m,vis,board);
             }
         } 
 
         //check for last col
         for(int r=0;r<n;r++){
-            if(board[r][m-1]=='O'){
+            if(vis[r][m-1]==0 && board[r][m-1]=='O'){
                 bfs(r,m-1,n,m,vis,board);
             }
         }
