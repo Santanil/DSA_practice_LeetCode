@@ -46,3 +46,48 @@ https://www.youtube.com/watch?v=uRbJ1OF9aYM&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7
 }
 
 
+
+***************************usinf Toposort (BFS)********************************
+
+class Solution {
+    public List<Integer> eventualSafeNodes(int[][] graph) {
+        List<Integer> res=new ArrayList<>();
+        List<List<Integer>> adjRev=new ArrayList<>();
+        int n=graph.length;
+        int[] indegree=new int[n];
+        for(int i=0;i<n;i++)
+            adjRev.add(new ArrayList<Integer>());
+
+        for(int i=0;i<n;i++){
+
+            for(int x:graph[i]){
+                adjRev.get(x).add(i);
+                indegree[i]++;
+            }
+        }
+
+        Queue<Integer> q=new LinkedList<Integer>();
+        for(int i=0;i<n;i++){
+            if(indegree[i]==0){
+                res.add(i);
+                q.add(i);
+            }
+        }
+
+        while(!q.isEmpty()){
+            int node=q.poll();
+            for(int x:adjRev.get(node)){
+                indegree[x]--;
+                if(indegree[x]==0){
+                    res.add(x);
+                    q.add(x);
+                }
+            }
+        }
+
+        Collections.sort(res);
+
+        return res;
+
+    }
+}
