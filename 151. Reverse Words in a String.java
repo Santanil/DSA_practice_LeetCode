@@ -58,3 +58,39 @@ class Solution {
         
     }
 }
+
+
+Another self applied algo:*************************************************************************************
+
+class Solution {
+    public String reverseWords(String s) {
+        StringBuffer sb=new StringBuffer();
+        s=s.trim();
+        int l=s.length();
+        int i=l-1;
+        while(i>=0){
+
+            //counting taking non-space characters and defining the boundary
+            int ptr1=i;
+            while(i>=0 && s.charAt(i)!=' ')
+                i--;
+            i++;
+            int ptr2=i;
+
+            //appending space before adding new word
+            sb.append(' ');
+
+            //appending new word for end
+            while(i<=ptr1){
+                sb.append(s.charAt(i));
+                i++;
+            }
+            i=ptr2-1;
+
+            //skip extra spaces between characters
+            while(i>=0 && s.charAt(i)==' ')
+                i--;
+        }
+        return sb.toString().trim();
+    }
+}
