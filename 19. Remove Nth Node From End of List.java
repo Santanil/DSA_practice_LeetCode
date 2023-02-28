@@ -16,20 +16,19 @@
 //TC:O(N)  SC:O(1)
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode pre=null,temp=head,end=head;
-        int i=1;
-        while(i<=n){
-            end=end.next;
-            i++;
+        ListNode pF=head,pS=null,pT=null;
+        for(int i=0;i<n;i++)
+            pF=pF.next;
+        pS=head;
+        while(pF!=null){
+            pT=pS;
+            pF=pF.next;
+            pS=pS.next;
         }
-        while(end!=null){
-            pre=temp;
-            temp=temp.next;
-            end=end.next;
-        }
-        if(pre==null) //if pre is null that means the 1st node is the nth node from end that is to be removed so we can simply return the next of head
+        if(pT==null) //head needs to be removed
             return head.next;
-        pre.next=temp.next;
+        else
+            pT.next=pS.next;
         return head;
     }
 }
