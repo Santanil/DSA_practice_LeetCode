@@ -13,7 +13,24 @@
  *     }
  * }
  */
- 
+*******************************BF approach********************************** 
+//TC:O(N)  SC:O(N)
+//Using HashSet
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        HashSet<ListNode> hs=new HashSet<>();
+        while(head!=null){
+            if(hs.contains(head))
+                return true;
+            else
+                hs.add(head);
+            head=head.next;
+        }
+        return false;    
+    }
+}
+
+*******************************Best/Optimized approach**********************************
  //TC: O(N)   SC:O(1)
  //Using slow and fast pointer technique
 public class Solution {
