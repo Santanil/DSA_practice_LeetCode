@@ -14,9 +14,9 @@
  * }
  */
 //Naive approach
-//to copy the values of the liats in an array and check if the array is palindromic or not
-//TC: O(N)+O(N)  for iterating through the list once + iterating through the array to check if its palindromic
-//SC: O(N) to store N elements of the List in an array
+to copy the values of the lists in an array and check if the array is palindromic or not
+TC: O(N)+O(N)  for iterating through the list once + iterating through the array to check if its palindromic
+SC: O(N) to store N elements of the List in an array
 
 
 
@@ -62,5 +62,42 @@ public class Solution {
             return true;
         else
             return false;
+    }
+}
+
+
+
+
+************************************************Consise Code*************************************************
+class Solution {
+    public ListNode reverseList(ListNode head){
+        ListNode prev=null,cur=head,nxt=null;
+        while(cur!=null){
+            nxt=cur.next;
+            cur.next=prev;
+            prev=cur;
+            cur=nxt;
+        }
+        return prev;
+    }
+    public boolean isPalindrome(ListNode head) {
+        if(head.next==null)
+            return true;
+        ListNode prev=null,slow=head,fast=head,firstListHead=head,secondListHead=null;
+        while(fast!=null && fast.next!=null){
+            prev=slow;
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        prev.next=null;
+        secondListHead=reverseList(slow);
+
+        while(firstListHead!=null){
+            if(firstListHead.val!=secondListHead.val)
+                return false;
+            firstListHead=firstListHead.next;
+            secondListHead=secondListHead.next;
+        }
+        return true;    
     }
 }
