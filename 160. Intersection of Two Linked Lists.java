@@ -71,3 +71,23 @@ public class Solution {
         return dA;
     }
 }
+
+
+*********************************************Optimized 2*********************************************
+
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode hA=headA,hB=headB;
+        while(hA!=hB){
+            if(hA==null)
+                hA=headB;
+            else
+                hA=hA.next;
+            if(hB==null)
+                hB=headA;
+            else
+                hB=hB.next; 
+        }
+        return hA;     
+    }
+}
