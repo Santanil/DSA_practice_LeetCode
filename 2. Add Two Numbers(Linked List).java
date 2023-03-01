@@ -18,26 +18,30 @@
 //TC: O(N)  SC:O(1)
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode head=new ListNode();
-        ListNode cur=head;
-        int carry=0,sum=0;
-        while(l1!=null || l2!=null || carry!=0){
-            ListNode temp=new ListNode();
-            if(l1!=null){
-                sum+=l1.val;
-                l1=l1.next;
-            }
-            if(l2!=null){
-                sum+=l2.val;
-                l2=l2.next;
-            }
-            sum+=carry;
+        ListNode l1Head=l1,l2Head=l2,ptr=null;
+        ListNode tempHead=new ListNode(-1);
+        ptr=tempHead;
+        int sum=0,carry=0;
+        while(l1Head!=null || l2Head!=null){
+
+            if(l1Head==null)
+                sum=(l2Head.val+carry);
+            else if(l2Head==null)
+                sum=(l1Head.val+carry);
+            else
+                sum=(l1Head.val+l2Head.val+carry);
             carry=sum/10;
-            temp.val=sum%10;
-            sum=0;
-            cur.next=temp;
-            cur=cur.next;
+            ListNode node=new ListNode(sum%10);
+            ptr.next=node;
+            ptr=ptr.next;
+            if(l1Head!=null) l1Head=l1Head.next;
+            if(l2Head!=null) l2Head=l2Head.next;
         }
-        return head.next;
+        if(carry>0){
+            ListNode node=new ListNode(carry);
+            ptr.next=node;
+            ptr.next.next=null;
+        }
+        return tempHead.next;    
     }
 }
