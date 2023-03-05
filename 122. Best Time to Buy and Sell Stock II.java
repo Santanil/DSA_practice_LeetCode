@@ -1,4 +1,8 @@
 //Normal recursive solution
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/
+https://www.youtube.com/watch?v=nGJmxkUJQGs&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=37
+
+
 TC: O(2^N)  SC:O(N)
 class Solution {
     public int findMaxProfit(int i,boolean buy,int[] prices,int n){
