@@ -28,3 +28,24 @@ class Solution {
         return root;
     }
 }
+
+//Better and simple approach:
+https://www.youtube.com/watch?v=_-QHfMDde90&t=718s
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root==null)
+            return null;
+        if(root==p)
+            return p;
+        if(root==q)
+            return q;
+        TreeNode leftNode=lowestCommonAncestor(root.left,p,q);
+        TreeNode rightNode=lowestCommonAncestor(root.right,p,q);
+        if(leftNode!=null && rightNode!=null)
+            return root;
+        else if(leftNode!=null && rightNode==null)
+            return leftNode;
+        else
+            return rightNode;    
+    }
+}
