@@ -65,6 +65,7 @@ class Solution {
 
 
 ____________________________________________________________________Shorter Code________________________________________________________________
+https://www.youtube.com/watch?v=ptgykfAEax8
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
