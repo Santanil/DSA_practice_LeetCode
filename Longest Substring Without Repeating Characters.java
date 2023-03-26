@@ -35,18 +35,15 @@ TC:O(N)  SC:(N)
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         HashMap<Character,Integer> hm=new HashMap<>();
-        int l=0,r=0,len=s.length(),res=0;
-        while(r<len){
-            char c=s.charAt(r);
-            if(hm.containsKey(c) && hm.get(c)>=l){
-                l=hm.get(c)+1;
-            }else{
-                hm.put(c,r);
-                res=Math.max(res,r-l+1);
-                r++;
-            }
-            
+        int left=0,right=0,maxLen=0;
+        while(right<s.length()){
+            char c=s.charAt(right);
+            if(hm.containsKey(c) && hm.get(c)>=left)
+                left=hm.get(c)+1;
+            hm.put(c,right);
+            maxLen=Math.max(maxLen,right-left+1);
+            right++;
         }
-        return res;    
+        return maxLen;    
     }
 }
