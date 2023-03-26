@@ -61,3 +61,24 @@ class Solution {
         return res; 
     }
 }
+
+
+
+____________________________________________________________________Shorter Code________________________________________________________________
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> res=new ArrayList<>();
+        HashMap<String,List<String>> hm=new HashMap<>();
+        for(String str:strs){
+            char[] charArray=str.toCharArray();
+            Arrays.sort(charArray);
+            String tempStr=new String(charArray);
+            if(!hm.containsKey(tempStr))
+                hm.put(tempStr,new ArrayList<>());
+            hm.get(tempStr).add(str);
+        }
+        res.addAll(hm.values());
+        return res;
+    }
+}
