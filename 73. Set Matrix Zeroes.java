@@ -7,7 +7,7 @@ Keeping one array to store column array that contains 1 corresponding to the col
  Now after iterating through the matrix completely, row and column arrays store the column and row for which we need to mark as 0
  Next we iterate through the matrix once again to check if the row or colmn value=1 , we update corresponding array element to 1 else we move on.
 
-TC: O(N^2)  SC:O(max(M,N))
+TC: O(M*N)  SC:O(max(M,N))
 class Solution {
     public void setZeroes(int[][] matrix) {
         int[] row=new int[matrix.length];
