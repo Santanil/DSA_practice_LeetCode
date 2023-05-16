@@ -27,14 +27,14 @@ SC: O(1)
   
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int l=0,r=1,n=nums.length;
-        if(n==1)
-            return 1;
-        while(r<n){
-            if(nums[l]!=nums[r])
-                nums[++l]=nums[r];
-            r++;
+        int ptr=1;
+        int temp=nums[0];
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]!=temp){
+                temp=nums[i];
+                nums[ptr++]=temp;
+            }
         }
-        return ++l;
+        return ptr;    
     }
 }
