@@ -1,0 +1,19 @@
+//168. Excel Sheet Column Title
+//https://leetcode.com/problems/excel-sheet-column-title/description/
+//https://www.youtube.com/watch?v=UcTKk2y_3s4
+
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        int val=0;
+        StringBuffer sb=new StringBuffer();
+        while(columnNumber>0){
+            columnNumber--;
+            char c=(char) ((columnNumber%26)+65);
+            sb.append(c);
+            columnNumber=columnNumber/26;
+        }
+        sb.reverse();
+        return sb.toString();           
+    }
+}
+
